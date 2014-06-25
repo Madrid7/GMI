@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="GMI\AdminBundle\Entity\Donasi" table="donasi">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nama" type="string" column="nama" length="30" nullable="false"/>
+    <field name="bank" type="string" column="bank" length="10" nullable="false"/>
+    <field name="tanggal" type="date" column="tanggal" nullable="false"/>
+    <field name="waktu" type="time" column="waktu" nullable="false"/>
+    <field name="resi" type="string" column="resi" length="50" nullable="false"/>
+    <field name="nominal" type="integer" column="nominal" nullable="false"/>
+    <field name="status" type="integer" column="status" nullable="false"/>
+  </entity>
+</doctrine-mapping>

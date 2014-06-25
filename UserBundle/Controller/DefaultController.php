@@ -5,6 +5,7 @@ namespace GMI\UserBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use GMI\UserBundle\Entity\User;
+use GMI\AdminBundle\Entity\Donasi;
 
 class DefaultController extends Controller
 {
@@ -18,8 +19,33 @@ class DefaultController extends Controller
         return $this->render('GMIUserBundle:User:userhome.html.twig');
     }
 
-    public function konfirmasiAction()
+    public function konfirmasiAction(Request $request)
     {
+        if($request->getMethod()=='POST'){
+            $nama=$request->get('nama');
+            $bank=$request->get('bank');
+            $tanggal=$request->get('tanggal');
+            $waktu=$request->get('waktu');
+            $resi=$request->get('resi');
+            $nominal=$request->get('nominal');
+            $status=$request->get('status');
+
+            $konf = new Donasi();
+            $konf->setNama($nama);
+            $konf->setBank($bank);
+            $konf->setTanggal(new \DateTime("$tanggal"));
+            $konf->setWaktu(new \DateTime("$waktu"));
+            //$konf->setWaktu($waktu);
+            $konf->setResi($resi);
+            $konf->setNominal($nominal);
+            $konf->setStatus($status);
+            
+            $em = $this->getDoctrine()->getEntityManager();
+            $em->persist($konf);
+            $em->flush();
+            return $this->redirect($this->generateUrl('konfirmasi_page'));
+        }
+
         return $this->render('GMIUserBundle:User:formkonfirmasi.html.twig');
     }
 

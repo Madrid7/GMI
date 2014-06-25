@@ -3,7 +3,7 @@
 {% block form %}
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <form class="form-horizontal" role="form">
+      <form class="form-horizontal" role="form" method="POST" action="{{path('konfirmasi_page')}}">
         <fieldset>
 
           <!-- Form Name -->
@@ -13,7 +13,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="textinput">Nama</label>
             <div class="col-sm-10">
-              <input type="text" placeholder="Nama Anda" class="form-control" required="required" disabled>
+              <input type="text" placeholder="Nama Anda" class="form-control" required="required" value="{{app.user.name}}" name="nama">
             </div>
           </div>
 
@@ -21,15 +21,18 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="textinput">Nama Bank</label>
             <div class="col-sm-10">
-              <input type="text" placeholder="Nama Bank" class="form-control" required="required">
+              <input type="text" placeholder="Nama Bank" class="form-control" required="required" name="bank">
             </div>
           </div>
 
           <!-- Text input-->
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="textinput">Waktu Donasi</label>
-            <div class="col-sm-10">
-              <input type="time" placeholder=" -- : -- " class="form-control" required="required" size="3">
+            <label class="col-sm-2 control-label" for="textinput">Waktu Pengiriman</label>
+            <div class="col-sm-4">
+              <input type="date" class="form-control" required="required" name="tanggal">
+            </div>
+            <div class="col-sm-4">
+              <input type="time" class="form-control" required="required" name="waktu">
             </div>
           </div>
 
@@ -37,15 +40,15 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="textinput">Nominal</label>
             <div class="col-sm-4">
-              <input type="text" placeholder="Rp." class="form-control" min="10000" required="required">
+              <input type="text" placeholder="Rp." class="form-control" min="10000" required="required" name="nominal">
             </div>
 
             <label class="col-sm-2 control-label" for="textinput">No. Referensi</label>
             <div class="col-sm-4">
-              <input type="text" placeholder="Nomor Referensi" class="form-control" required="required">
+              <input type="text" placeholder="Nomor Referensi" class="form-control" required="required" name="resi">
             </div>
           </div>
-
+          <input type="hidden" value="0" name="status">
 
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
