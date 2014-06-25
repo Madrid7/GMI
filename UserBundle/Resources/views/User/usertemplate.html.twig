@@ -81,7 +81,14 @@
                   </ul>
                   <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><font color="red">{{app.user.username}} <i class="glyphicon glyphicon-cog"></i></font></a>
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><font color="red">
+                        {% set a = '{{app.user.name}}' %}
+                        {% if a == NULL %}
+                          {{app.user.username}}
+                          {% else %}
+                            {{app.user.name}}
+                              {% endif %}
+                       <i class="glyphicon glyphicon-cog"></i></font></a>
                       <ul class="dropdown-menu">
                         <li><a href="{{path('fos_user_security_logout')}}">Sign Out</a></li>
                       </ul>

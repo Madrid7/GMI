@@ -85,7 +85,14 @@ $(document).ready(function() {
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
         <div class="panel panel-info">
             <div class="panel-heading">
-              <h3 class="panel-title">{{app.user.username}}</h3>
+              <h3 class="panel-title">
+                {% set a = '{{app.user.name}}' %}
+                {% if a == NULL %}
+                  {{app.user.username}}
+                  {% else %}
+                    {{app.user.name}}
+                      {% endif %}
+              </h3>
             </div>
             <div class="panel-body">
               <div class="row">
@@ -96,26 +103,26 @@ $(document).ready(function() {
                     <tbody>
                       <tr>
                         <td>Nama:</td>
-                        <td>-</td>
+                        <td>{{app.user.name}}</td>
                       </tr>
                       <tr>
                         <td>Jenis Kelamin:</td>
-                        <td>-</td>
+                        <td>{{app.user.sex}}</td>
                       </tr>
                       <tr>
                         <td>Alamat:</td>
-                        <td>-</td>
+                        <td>{{app.user.address}}</td>
                       </tr>
                       <tr>
                         <td>Kota Asal:</td>
-                        <td>-</td>
+                        <td>{{app.user.town}}</td>
                       </tr>
                       <tr>
                         <td>Email:</td>
                         <td><a href="#">{{app.user.email}}</a></td>
                       </tr>
                         <td>Kontak:</td>
-                        <td>-</td>
+                        <td>{{app.user.cp}}</td>
                       </tr>
                      
                     </tbody>
