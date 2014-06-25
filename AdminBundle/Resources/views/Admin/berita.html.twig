@@ -1,0 +1,17 @@
+<form id="form" method="POST" action="{{ path('input_berita') }}" name="berita">
+    <table class="table table-responsive">
+        <tr>
+            <td>Judul</td>
+            <td><input type="text" name="judul" size="90"></td>
+        </tr>
+        <tr>
+            <td>Isi</td>
+            <td><textarea name="isi"></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><center><button type="submit" class="btn btn-success">Post</button></center></td>
+        </tr>
+    </table>
+        <input type="hidden" name="penulis" value="{{app.user.username}}">
+    </form>

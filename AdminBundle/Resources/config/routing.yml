@@ -1,0 +1,11 @@
+index:
+    pattern:  /index
+    defaults: { _controller: GMIAdminBundle:Default:index }
+
+gmi_admin_homepage:
+    pattern:  /adminpage
+    defaults: { _controller: GMIAdminBundle:Default:adminpage }
+
+input_berita:
+    pattern:  /adminpage
+    defaults: { _controller: GMIAdminBundle:Default:inputberita }

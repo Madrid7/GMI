@@ -1,0 +1,54 @@
+{% extends "GMIAdminBundle:Admin:admintemplate.html.twig" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <ul class="nav nav-pills nav-stacked admin-menu">
+                <li class="active"><a href="#" data-target-id="beranda"><i class="fa fa-home fa-fw"></i>Beranda</a></li>
+                <li><a href="#" data-target-id="kotakmasuk"><i class="glyphicon glyphicon-envelope fa-fw"></i>Kotak Masuk</a></li>
+                <li><a href="#" data-target-id="anggota"><i class="glyphicon glyphicon-list-alt fa-fw"></i>Anggota</a></li>
+                <li><a href="#" data-target-id="penerima"><i class="glyphicon glyphicon-list fa-fw"></i>Penerima Bantuan</a></li>
+                <li><a href="#" data-target-id="laporan"><i class="fa fa-book fa-fw"></i>Laporan</a></li>
+                <li><a href="#" data-target-id="jadwal"><i class="glyphicon glyphicon-calendar fa-fw"></i>Jadwal</a></li>
+                <li><a href="#" data-target-id="berita"><i class="fa fa-file-o fa-fw"></i>Berita</a></li>
+                <li><a href="{{ path('fos_user_security_logout') }}"><i class="glyphicon glyphicon-off fa-fw"></i>Logout</a></li>
+            </ul>
+        </div>
+        <div class="col-md-9 well admin-content" id="beranda">
+            <p>
+                Hello! This is a forked snippet.<br>
+                It is for users, which use one-page layouts.
+            </p>
+            <p>
+                Here's the original one from BhaumikPatel: <a href="http://bootsnipp.com/snippets/featured/vertical-admin-menu" target="_BLANK">Vertical Admin Menu</a>
+                <br><br>
+                <strong>Thank you Bhaumik!</strong>
+            </p>
+        </div>
+        <div class="col-md-9 well admin-content" id="kotakmasuk">
+            <legend><center>Kotak Masuk</center></legend>
+            
+        </div>
+        <div class="col-md-9 well admin-content" id="anggota">
+            <legend><center>Anggota</center></legend>
+            {% include "GMIAdminBundle:Admin:member.html.twig" %}
+        </div>
+        <div class="col-md-9 well admin-content" id="penerima">
+            <legend><center>Penerima Bantuan</center></legend>
+            
+        </div>
+        <div class="col-md-9 well admin-content" id="laporan">
+            <legend><center>Laporan</center></legend>
+        </div>
+        <div class="col-md-9 well admin-content" id="jadwal">
+            <legend><center>Jadwal</center></legend>
+            
+        </div>
+        <div class="col-md-9 well admin-content" id="berita">
+            <legend><center>Berita</center></legend>
+            {% include "GMIAdminBundle:Admin:berita.html.twig" %}
+        </div>
+    </div>
+</div>
+{% endblock %}

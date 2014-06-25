@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>index</title>
+        {%if is_granted('ROLE_ADMIN')%}
+            <script>
+                window.location = "{{ path('gmi_admin_homepage') }}";
+            </script>
+            {%else%}
+                <script>
+                    window.location = "{{ path('user_homepage') }}";
+                </script>
+                {%endif%}
+    </head>
+    <body>
+           
+    </body>
+</html>

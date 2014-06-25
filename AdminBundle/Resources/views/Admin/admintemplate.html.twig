@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Admin</title>
+        {%if is_granted('ROLE_ADMIN')==null%}
+            <script>
+                window.location = "{{ path('fos_user_security_logout') }}";
+            </script>
+            {%endif%}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="{{asset('bundles/gmiuser/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('bundles/gmiuser/css/bootstrap.css')}}">
+        <link rel="stylesheet" href="{{asset('bundles/gmiuser/css/bootstrap-theme.min.css')}}">
+        <link rel="stylesheet" href="{{asset('bundles/gmiuser/css/bootstrap-responsive.css')}}">
+        <script type="text/javascript" src="{{asset('bundles/gmiuser/js/jquery-1.10.2.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('bundles/gmiuser/tinymce/tiny_mce.js')}}"></script>
+        <style type="text/css">
+            @import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+            body{margin-top:20px;}
+            .fa-fw {width: 2em;}
+        </style>
+        <script type="text/javascript">
+        $(document).ready(function()
+            {
+                var navItems = $('.admin-menu li > a');
+                var navListItems = $('.admin-menu li');
+                var allWells = $('.admin-content');
+                var allWellsExceptFirst = $('.admin-content:not(:first)');
+                
+                allWellsExceptFirst.hide();
+                navItems.click(function(e)
+                {
+                    e.preventDefault();
+                    navListItems.removeClass('active');
+                    $(this).closest('li').addClass('active');
+                    
+                    allWells.hide();
+                    var target = $(this).attr('data-target-id');
+                    $('#' + target).show();
+                });
+            });
+        tinyMCE.init({
+            // General options
+            mode : "textareas",
+            theme : "advanced",
+            width : "680",
+            height : "500",
+            });
+        </script>
+    </head>
+    <body>
+
+        {% block content %}
+        {% endblock %}
+
+    <script type="text/javascript" src="{{asset('bundles/gmiuser/js/bootstrap.min.js')}}"></script>
+    </body>
+</html>

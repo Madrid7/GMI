@@ -1,0 +1,23 @@
+gmi_user_homepage:
+    pattern:  /
+    defaults: { _controller: GMIUserBundle:Default:index }
+
+user_homepage:
+    pattern:  /userhome
+    defaults: { _controller: GMIUserBundle:Default:userhome }
+
+konfirmasi_page:
+    pattern:  /formkonfirmasi
+    defaults: { _controller: GMIUserBundle:Default:konfirmasi }
+
+donasisaya_page:
+    pattern:  /donasisaya
+    defaults: { _controller: GMIUserBundle:Default:donasisaya }
+
+profil_page:
+    pattern:  /profilsaya
+    defaults: { _controller: GMIUserBundle:Default:profil }
+
+ubahprofil_page:
+    pattern:  /ubahprofil
+    defaults: { _controller: GMIUserBundle:Default:ubahprofil }

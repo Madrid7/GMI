@@ -1,0 +1,7 @@
+parameters:
+    gmi_admin_userprovider.class: GMI\AdminBundle\Security\Core\User\FOSUBUserProvider
+
+services:
+    gmi_admin_userprovider:
+        class: %gmi_admin_userprovider.class%
+        arguments: [@fos_user.user_manager, {facebook: facebookId}]

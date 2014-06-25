@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <title>User</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="{{asset('bundles/gmiuser/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('bundles/gmiuser/css/bootstrap.css')}}">
+        <link rel="stylesheet" href="{{asset('bundles/gmiuser/css/bootstrap-theme.min.css')}}">
+        <link rel="stylesheet" href="{{asset('bundles/gmiuser/css/bootstrap-responsive.css')}}">
+        {%block css%}{%endblock%}
+        <style type="text/css">
+            h2{
+                margin: 0;     
+                color: #666;
+                padding-top: 90px;
+                font-size: 52px;
+                font-family: "trebuchet ms", sans-serif;    
+            }
+            .item{
+                background: #333;    
+                text-align: center;
+                height: 300px !important;
+                
+            }
+            .carousel{
+                margin-top: 20px;
+            }
+            .bs-example{
+                margin: 20px;
+            }
+            .hd{
+                background:#22A7F0;
+                color:white;
+            }
+            .icon{
+                background:#22313F;
+                height: 150px;
+            }
+            #berita{
+                background:#ECF0F1;
+                height: 400px;
+            }
+            
+        </style>
+        {%block js%}{%endblock%}
+    </head>
+    <body>
+
+            <nav class="navbar navbar-default hd" role="navigation">
+              <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#"><img src="{{asset('bundles/gmiuser/icon/Methodist_Logo.gif')}}" class="img-responsive"></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav">
+                    <li><a href="{{path('user_homepage')}}">Beranda</a></li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profil <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="{{path('profil_page')}}">Profil Saya</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{{path('ubahprofil_page')}}">Ubah Profil</a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Donasi <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="{{path('donasisaya_page')}}">Donasi Saya</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{{path('konfirmasi_page')}}">Konfirmasi</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><font color="red">{{app.user.username}} <i class="glyphicon glyphicon-cog"></i></font></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="{{path('fos_user_security_logout')}}">Sign Out</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div><!-- /.navbar-collapse -->
+              </div><!-- /.container-fluid -->
+            </nav>
+
+        
+
+        <div class="container">
+            {% block form %}{% endblock %}
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    {% block content %}{% endblock %}
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+            <br class="break" />
+            <div class="footer">
+                <hr>
+                <p class="muted pull-center">© 2014 Gereja Methodist Indonesia Cabang-Medan.</p>
+            </div>
+        </div>
+
+            
+    <script type="text/javascript" src="{{asset('bundles/gmiuser/js/bootstrap-modal.js')}}"></script>
+    <script type="text/javascript" src="{{asset('bundles/gmiuser/js/jquery.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('bundles/gmiuser/js/bootstrap.min.js')}}"></script>
+    </body>
+</html>
