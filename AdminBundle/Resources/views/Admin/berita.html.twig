@@ -1,17 +1,48 @@
-<form id="form" method="POST" action="{{ path('input_berita') }}" name="berita">
-    <table class="table table-responsive">
-        <tr>
-            <td>Judul</td>
-            <td><input type="text" name="judul" size="90"></td>
-        </tr>
-        <tr>
-            <td>Isi</td>
-            <td><textarea name="isi"></textarea></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><center><button type="submit" class="btn btn-success">Post</button></center></td>
-        </tr>
-    </table>
-        <input type="hidden" name="penulis" value="{{app.user.username}}">
+{% extends "GMIAdminBundle:Admin:admintemplate.html.twig" %}
+
+{% block content %}
+<div class="row col-md-10 col-md-offset-2 custyle">
+    <form id="form" method="POST" action="{{path('berita_adminpage')}}">
+        <table class="table table-responsive">
+            <tr>
+                <td>Judul</td>
+                <td><input type="text" name="judul" size="90" required="required"></td>
+            </tr>
+            <tr>
+                <td>Isi</td>
+                <td><textarea name="isi" required="required"></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><center><button type="submit" class="btn btn-success">Post</button></center></td>
+            </tr>
+        </table>
+            <input type="hidden" name="penulis" value="{{app.user.username}}">
     </form>
+</div>
+<br class=break />
+<div class="row col-md-10 col-md-offset-1 custyle">
+    <table class="table table-striped custab">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Tanggal</th>
+                <th>Judul</th>
+                <th>Sumber</th>
+                <th class="text-center">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for i in berita%}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{i.tanggal|date('d M Y')}}</td>
+                <td>{{i.judul}}</td>
+                <td>{{i.sumber}}</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="{{path('delete_berita', {'id':i.Id})}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+{%endblock%}

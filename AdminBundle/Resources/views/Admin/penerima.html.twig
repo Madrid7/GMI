@@ -1,0 +1,47 @@
+{% extends "GMIAdminBundle:Admin:admintemplate.html.twig" %}
+
+{% block content %}
+<div class="row col-md-10 col-md-offset-1 custyle">
+    
+    <table class="table table-striped custab">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nama</th>
+                <th>Gender</th>
+                <th>Alamat</th>
+                <th>Penyakit</th>
+                <th class="text-center">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <form method="POST" action="{{ path('korban_adminpage') }}">
+                <td>#</td>
+                <td><input type="text" required="required" name="name" placeholder="Nama"></td>
+                <td>
+                    <select name="sex">
+                        <option value="Pria">Pria</option>
+                        <option value="Wanita">Wanita</option>
+                    </select>
+                </td>
+                <td><input type="text" required="required" name="address" placeholder="Alamat"></td>
+                <td><input type="text" required="required" name="disease" placeholder="Penyakit"></td>
+                <td><center><button type="submit" class="btn btn-success">Save</button></center></td>
+                </form>
+            </tr>
+            {%for i in korban%}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.sex}}</td>
+                <td>{{i.address}}</td>
+                <td>{{i.disease}}</td>
+                <td class="text-center"><a href="{{path('delete_korban', {'id' : i.Id})}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    
+</div>
+{%endblock%}

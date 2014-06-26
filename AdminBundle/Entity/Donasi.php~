@@ -192,4 +192,32 @@ class Donasi
     {
         return $this->id;
     }
+    /**
+     * @var \DateTime
+     */
+    private $tanggal;
+
+
+    /**
+     * Set tanggal
+     *
+     * @param \DateTime $tanggal
+     * @return Donasi
+     */
+    public function setTanggal($tanggal)
+    {
+        $this->tanggal = $tanggal;
+
+        return $this;
+    }
+
+    /**
+     * Get tanggal
+     *
+     * @return \DateTime 
+     */
+    public function getTanggal()
+    {
+        return $this->tanggal;
+    }
 }

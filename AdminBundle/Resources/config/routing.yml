@@ -3,9 +3,57 @@ index:
     defaults: { _controller: GMIAdminBundle:Default:index }
 
 gmi_admin_homepage:
-    pattern:  /adminpage
-    defaults: { _controller: GMIAdminBundle:Default:adminpage }
+    pattern:  /adminhome
+    defaults: { _controller: GMIAdminBundle:Default:adminhome }
 
-input_berita:
-    pattern:  /adminpage
+member_adminpage:
+    pattern:  /member
+    defaults: { _controller: GMIAdminBundle:Default:member }
+
+delete_member:
+    pattern:  /deletemember/{id}
+    defaults: { _controller: GMIAdminBundle:Default:deletemember }
+
+korban_adminpage:
+    pattern:  /korban
+    defaults: { _controller: GMIAdminBundle:Default:korban }
+
+delete_korban:
+    pattern:  /deletekorban/{id}
+    defaults: { _controller: GMIAdminBundle:Default:deletekorban }
+
+inbox_adminpage:
+    pattern:  /inbox
+    defaults: { _controller: GMIAdminBundle:Default:inbox }
+
+edit_inbox:
+    pattern:  /editinbox/{id}
+    defaults: { _controller: GMIAdminBundle:Default:editinbox }
+
+delete_inbox:
+    pattern:  /deleteinbox/{id}
+    defaults: { _controller: GMIAdminBundle:Default:deleteinbox }
+
+laporan_adminpage:
+    pattern:  /laporan
+    defaults: { _controller: GMIAdminBundle:Default:laporan }
+
+delete_laporan:
+    pattern:  /deletelaporan/{id}
+    defaults: { _controller: GMIAdminBundle:Default:deletelaporan }
+
+berita_adminpage:
+    pattern:  /inputberita
     defaults: { _controller: GMIAdminBundle:Default:inputberita }
+
+delete_berita:
+    pattern:  /deleteberita/{id}
+    defaults: { _controller: GMIAdminBundle:Default:deleteberita }
+
+jadwal_adminpage:
+    pattern:  /inputjadwal
+    defaults: { _controller: GMIAdminBundle:Default:inputjadwal }
+
+delete_jadwal:
+    pattern:  /deletejadwal/{id}
+    defaults: { _controller: GMIAdminBundle:Default:deletejadwal }

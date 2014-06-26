@@ -14,9 +14,14 @@
         <script type="text/javascript" src="{{asset('bundles/gmiuser/js/jquery-1.10.2.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('bundles/gmiuser/tinymce/tiny_mce.js')}}"></script>
         <style type="text/css">
-            @import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
-            body{margin-top:20px;}
-            .fa-fw {width: 2em;}
+           
+            .hd{
+                background:#141414;
+                color:white;
+            }
+            .fa-fw {width: 1.5em;}
+            
+            
         </style>
         <script type="text/javascript">
         $(document).ready(function()
@@ -48,10 +53,71 @@
         </script>
     </head>
     <body>
+        <nav class="navbar navbar-default hd" role="navigation">
+              <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#"><img src="{{asset('bundles/gmiuser/icon/Methodist_Logo.gif')}}" class="img-responsive"></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav">
+                    <li><a href="{{path('gmi_admin_homepage')}}"><i class="glyphicon glyphicon-home fa-fw"></i>Beranda</a></li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="{{path('member_adminpage')}}">Anggota</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{{path('korban_adminpage')}}">Korban</a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Donasi <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="{{path('inbox_adminpage')}}">Kotak Masuk</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{{path('laporan_adminpage')}}">Laporan</a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Lain <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="{{path('jadwal_adminpage')}}">Jadwal</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{{path('berita_adminpage')}}">Berita</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><font color="red"><i class="glyphicon glyphicon-user fa-fw"></i>
+                        {% set a = '{{app.user.name}}' %}
+                        {% if a == NULL %}
+                          {{app.user.username}}
+                          {% else %}
+                            {{app.user.name}}
+                              {% endif %}
+                       </font></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="{{path('fos_user_security_logout')}}"><i class="glyphicon glyphicon-off fa-fw"></i>Sign Out</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div><!-- /.navbar-collapse -->
+              </div><!-- /.container-fluid -->
+            </nav>
 
         {% block content %}
         {% endblock %}
 
+    <script type="text/javascript" src="{{asset('bundles/gmiuser/js/jquery.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('bundles/gmiuser/js/bootstrap.min.js')}}"></script>
     </body>
 </html>

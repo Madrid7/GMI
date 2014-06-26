@@ -1,0 +1,29 @@
+{% extends "GMIAdminBundle:Admin:admintemplate.html.twig" %}
+
+{% block content %}
+<legend><center>Dana Terkumpul</center></legend>
+<div class="row col-md-10 col-md-offset-1 custyle">
+    <table class="table table-striped custab">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nama</th>
+                <th>Bank</th>
+                <th>Nominal</th>
+                <th class="text-center">Opsi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for i in donasi%}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{i.nama}}</td>
+                <td>{{i.bank}}</td>
+                <td>{{i.nominal|number_format}}</td>
+                <td class="text-center"><a href="{{path('delete_laporan', {'id' :i.Id})}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+{%endblock%}

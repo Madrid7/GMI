@@ -1,0 +1,11 @@
+{% extends "GMIAdminBundle:Admin:admintemplate.html.twig" %}
+
+{% block content %}
+<div class="row col-md-10 col-md-offset-1 custyle">
+    <form method="POST" action="{{path('edit_inbox', {'id' :donasi.Id})}}">
+        <input type='hidden' name="status" value="1">
+        Apakah Anda yakin ? 
+        <button type="submit" class="btn btn-success">Ya</button>
+    </form>
+</div>
+{%endblock%}

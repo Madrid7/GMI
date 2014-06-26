@@ -1,0 +1,64 @@
+{% extends "GMIAdminBundle:Admin:admintemplate.html.twig" %}
+
+{% block content %}
+<legend><center>Daftarkan Event</center></legend>
+<div class="row col-md-10 col-md-offset-2 custyle">
+    <form id="form" method="POST" action="{{path('jadwal_adminpage')}}">
+        <table class="table table-responsive">
+            <tr>
+                <td>Nama Event</td>
+                <td><input type="text" name="judul" size="70" required="required"></td>
+            </tr>
+            <tr>
+                <td>Tanggal Event</td>
+                <td><input type="date" name="tgl" size="25" required="required"></td>
+            </tr>
+            <tr>
+                <td>Waktu Event</td>
+                <td><input type="time" name="waktu" size="25" required="required"></td>
+            </tr>
+            <tr>
+                <td>Alamat Event</td>
+                <td><input type="text" name="alamat" size="70" required="required"></td>
+            </tr>
+            <tr>
+                <td>Ketua Panitia</td>
+                <td><input type="text" name="panitia" size="70" required="required"></td>
+            </tr>
+            <tr>
+                <td>No. Telp</td>
+                <td><input type="number" name="cp" size="70" required="required"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button type="submit" class="btn btn-success">Post</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<br class=break />
+<div class="row col-md-10 col-md-offset-1 custyle">
+    <table class="table table-striped custab">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Tanggal</th>
+                <th>Judul</th>
+                <th>Alamat</th>
+                <th class="text-center">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for i in jadwal%}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{i.tanggal|date('d M Y')}}</td>
+                <td>{{i.judul}}</td>
+                <td>{{i.alamat}}</td>
+                <td class="text-center"><a href="{{path('delete_jadwal', {'id' :i.Id})}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+{%endblock%}

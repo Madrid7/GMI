@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="GMI\AdminBundle\Entity\Jadwal" table="jadwal">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="tanggal" type="date" column="tanggal" nullable="false"/>
+    <field name="judul" type="string" column="judul" length="100" nullable="false"/>
+    <field name="tanggalEvent" type="date" column="tanggal_event" nullable="false"/>
+    <field name="waktuEvent" type="time" column="waktu_event" nullable="false"/>
+    <field name="alamat" type="string" column="alamat" length="100" nullable="false"/>
+    <field name="panitia" type="string" column="panitia" length="50" nullable="false"/>
+    <field name="cp" type="integer" column="cp" nullable="false"/>
+  </entity>
+</doctrine-mapping>

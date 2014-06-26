@@ -5,13 +5,13 @@
     <div class="row">
         <div class="col-md-3">
             <ul class="nav nav-pills nav-stacked admin-menu">
-                <li class="active"><a href="#" data-target-id="beranda"><i class="fa fa-home fa-fw"></i>Beranda</a></li>
+                <li class="active"><a href="#" data-target-id="beranda"><i class="glyphicon glyphicon-home fa-fw"></i>Beranda</a></li>
                 <li><a href="#" data-target-id="kotakmasuk"><i class="glyphicon glyphicon-envelope fa-fw"></i>Kotak Masuk</a></li>
                 <li><a href="#" data-target-id="anggota"><i class="glyphicon glyphicon-list-alt fa-fw"></i>Anggota</a></li>
                 <li><a href="#" data-target-id="penerima"><i class="glyphicon glyphicon-list fa-fw"></i>Penerima Bantuan</a></li>
-                <li><a href="#" data-target-id="laporan"><i class="fa fa-book fa-fw"></i>Laporan</a></li>
+                <li><a href="#" data-target-id="laporan"><i class="glyphicon glyphicon-book fa-fw"></i>Laporan</a></li>
                 <li><a href="#" data-target-id="jadwal"><i class="glyphicon glyphicon-calendar fa-fw"></i>Jadwal</a></li>
-                <li><a href="#" data-target-id="berita"><i class="fa fa-file-o fa-fw"></i>Berita</a></li>
+                <li><a href="#" data-target-id="berita"><i class="glyphicon glyphicon-pencil fa-fw"></i>Berita</a></li>
                 <li><a href="{{ path('fos_user_security_logout') }}"><i class="glyphicon glyphicon-off fa-fw"></i>Logout</a></li>
             </ul>
         </div>
@@ -28,14 +28,15 @@
         </div>
         <div class="col-md-9 well admin-content" id="kotakmasuk">
             <legend><center>Kotak Masuk</center></legend>
-            
+            {#{% include "GMIAdminBundle:Admin:inbox.html.twig" %}#}
         </div>
         <div class="col-md-9 well admin-content" id="anggota">
             <legend><center>Anggota</center></legend>
-            {% include "GMIAdminBundle:Admin:member.html.twig" %}
+            {#{% include "GMIAdminBundle:Admin:member.html.twig" %}#}
         </div>
         <div class="col-md-9 well admin-content" id="penerima">
-            <legend><center>Penerima Bantuan</center></legend>
+            <legend><center>Daftar Penerima Bantuan</center></legend>
+            {#{% include "GMIAdminBundle:Admin:penerima.html.twig" %}#}
             
         </div>
         <div class="col-md-9 well admin-content" id="laporan">
