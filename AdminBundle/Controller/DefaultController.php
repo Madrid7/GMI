@@ -72,8 +72,12 @@ class DefaultController extends Controller
 
     public function laporanAction()
     {
-    	$donasi = $this->getDoctrine()->getRepository('GMIAdminBundle:Donasi')->findByStatus((1), array('id' => 'desc'));
-    	return $this->render('GMIAdminBundle:Admin:laporan.html.twig', array('donasi' => $donasi));
+    	$em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery('SELECT SUM(p.nominal) FROM GMIAdminBundle:Donasi p WHERE p.status = 1 ORDER BY p.id DESC');
+        $jlh = $query->getSingleScalarResult();
+        
+        $donasi = $this->getDoctrine()->getRepository('GMIAdminBundle:Donasi')->findByStatus((1), array('id' => 'desc'));
+    	return $this->render('GMIAdminBundle:Admin:laporan.html.twig', array('donasi' => $donasi, 'jlh' => $jlh));
     }
 
     public function deletelaporanAction(Request $request, $id)

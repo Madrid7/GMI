@@ -51,7 +51,14 @@ class DefaultController extends Controller
 
     public function donasisayaAction()
     {
-        return $this->render('GMIUserBundle:User:donasisaya.html.twig');
+        $user = $this->getUser()->getName();
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery('SELECT SUM(p.nominal) FROM GMIAdminBundle:Donasi p WHERE p.nama = :name AND p.status = 1');
+        $total = $query->setParameter('name', $user)->getSingleScalarResult();
+        //$jlh = $query->getSingleScalarResult();
+
+        $donasi = $this->getDoctrine()->getRepository('GMIAdminBundle:Donasi')->findBy(array('nama' => $user, 'status' => 1), array('id' => 'desc'));
+        return $this->render('GMIUserBundle:User:donasisaya.html.twig', array('donasi' => $donasi, 'total' => $total));
     }
 
     public function profilAction()

@@ -12,8 +12,8 @@
           <!-- Text input-->
           <div class="form-group">
             <label class="col-sm-2 control-label" for="textinput">Nama</label>
-            <div class="col-sm-10">
-              <input type="text" placeholder="Nama Anda" class="form-control" required="required" value="{{app.user.name}}" name="nama">
+            <div class="col-sm-10"><label class="form-control">{{app.user.name}}</label>
+              <input type="hidden" placeholder="Nama Anda" class="form-control" required="required" value="{{app.user.name}}" name="nama">
             </div>
           </div>
 
