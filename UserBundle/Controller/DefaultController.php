@@ -6,12 +6,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use GMI\UserBundle\Entity\User;
 use GMI\AdminBundle\Entity\Donasi;
+use GMI\AdminBundle\Entity\Berita;
 
 class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('GMIUserBundle:Default:Template.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery('SELECT p FROM GMIAdminBundle:Berita p ORDER BY p.id DESC')
+                ->setMaxResults(6);
+        $berita = $query->getResult();
+        return $this->render('GMIUserBundle:Default:Template.html.twig', array('berita' => $berita));
     }
 
     public function userhomeAction()

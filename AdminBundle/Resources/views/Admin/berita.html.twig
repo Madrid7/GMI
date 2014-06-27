@@ -10,7 +10,7 @@
             </tr>
             <tr>
                 <td>Isi</td>
-                <td><textarea name="isi" required="required"></textarea></td>
+                <td><textarea name="isi"></textarea></td>
             </tr>
             <tr>
                 <td></td>
@@ -39,7 +39,7 @@
                 <td>{{i.tanggal|date('d M Y')}}</td>
                 <td>{{i.judul}}</td>
                 <td>{{i.sumber}}</td>
-                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="{{path('delete_berita', {'id':i.Id})}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+                <td class="text-center"><a href="{{path('delete_berita', {'id':i.Id})}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
             </tr>
             {%endfor%}
         </tbody>
