@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Jadwal Event</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="{{asset('bundles/gmiuser/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('bundles/gmiuser/css/bootstrap.css')}}">
+        <link rel="stylesheet" href="{{asset('bundles/gmiuser/css/bootstrap-theme.min.css')}}">
+        <link rel="stylesheet" href="{{asset('bundles/gmiuser/css/bootstrap-responsive.css')}}">
+        <style type="text/css">
+			.hd{
+                background:#22A7F0;}
+            .head{
+            	height:100px;
+            }
+        </style>
+    </head>
+    <body>
+    	<div class="header">
+            
+            <div class="col-md-12 col-md-offset-0">
+                <center><img src="{{asset('bundles/gmiuser/slider/img1.png')}}" class="img-responsive head"></center><br class="break" />
+            </div>
+            
+        </div>
+    	<br class="break">
+        <legend><center>Jadwal Event</center></legend>
+        {% for item in jadwal %}
+		<div class="row col-md-8 col-md-offset-2 hd">
+            <div class="kolom-jadwal">
+                <div class="judul-jadwal"><b><h4>{{ item.judul }}</h4></b></div>
+                <div class="tanggal-jadwal"><font color="red">{{ item.tanggalevent|date('d-M-Y') }} {{ item.waktuevent|date('h:m') }}</font></div>
+                <div class="alamat-jadwal">{{ item.alamat }}</div>
+                <div class="panitia-jadwal">{{ item.panitia }}</div>
+                <div class="cp-jadwal">{{item.cp}}</div><hr>
+            </div>
+    	</div>
+        {%endfor%}
+	</body>
+</html>

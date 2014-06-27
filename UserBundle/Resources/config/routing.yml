@@ -2,6 +2,14 @@ gmi_user_homepage:
     pattern:  /
     defaults: { _controller: GMIUserBundle:Default:index }
 
+news_homepage:
+    pattern:  /news/{id}
+    defaults: { _controller: GMIUserBundle:Default:newspage }
+
+jadwal_homepage:
+    pattern:  /jadwal
+    defaults: { _controller: GMIUserBundle:Default:jadwalpage }
+
 user_homepage:
     pattern:  /userhome
     defaults: { _controller: GMIUserBundle:Default:userhome }

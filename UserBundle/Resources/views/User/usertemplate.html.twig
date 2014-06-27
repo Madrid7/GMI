@@ -39,7 +39,7 @@
                 background:#ECF0F1;
                 height: 400px;
             }
-            
+            .fa-fw {width: 1.5em;}
         </style>
         
         {%block js%}{%endblock%}
@@ -62,7 +62,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav">
-                    <li><a href="{{path('user_homepage')}}">Beranda</a></li>
+                    <li><a href="{{path('user_homepage')}}"><i class="glyphicon glyphicon-home fa-fw"></i>Beranda</a></li>
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profil <b class="caret"></b></a>
                       <ul class="dropdown-menu">

@@ -29,16 +29,17 @@
             }
             .hd{
                 background:#22313F;
+                color: #C0392B;
             }
             .icon{
                 background:#22313F;
-                height: 150px;
+                height: 100px;
             }
             #berita{
                 background:#ECF0F1;
                 //height: 400px;
             }
-            
+            .fa-fw {width: 1.5em;}
         </style>
     </head>
     <body>
@@ -59,19 +60,9 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-home fa-fw"></i>Home</a></li>
                     <li><a href="#">Profile</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jadwal <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="#">Umum</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Remaja</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Sekolah Minggu</a></li>
-                      </ul>
-                    </li>
+                    <li><a href="{{path('jadwal_homepage')}}" target="_blank">Jadwal</a></li>
                   </ul>
                   <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{ path('hwi_oauth_service_redirect', {service: 'facebook'}) }}"><img src="{{asset('bundles/gmiuser/icon/lwf.png')}}" class="img-responsive"></a></li>
@@ -91,22 +82,23 @@
             
 
         <div class="container">
-            <br class="break" />
+            
         </div>
 
-            <div class="content icon">
-                
+            <div class="content hd">
+                {% block content%}{% endblock %}
+                <br class="break" /><br class="break" />
             </div>
-            <br class="break" />
+            
 
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-10" id="berita">
+                    <br class="break" /><br class="break" />
+                    <div class="col-md-10 col-md-offset-1" id="berita">
                         <legend><center>Berita</center></legend>
                         {% for item in berita %}
                         <div class="col-md-6 col-md-offset-0">
-                            <div class="judul-berita"><b>{{ item.judul }}</b></div>
+                            <div class="judul-berita"><h4><b>{{ item.judul }}</b></h4></div>
                             <div class="tanggal-berita"><b><font color="red">{{ item.tanggal|date('d-M-Y') }}</font></b></div>
                             <div class="deskripsi-berita">
                             {% set isi = item.isi|split(" ") %}
@@ -114,11 +106,11 @@
                                 {{ isi[i]|raw }}
                             {% endfor %} 
                             </div><br>
-                            <div style="text-align: right"><a href="#">Selengkapnya &raquo;</a></div>
+                            <div style="text-align: right"><a href="{{path('news_homepage', {'id' :item.Id})}}" target="_blank">Selengkapnya &raquo;</a></div>
                         </div>
                         {%endfor%}
                     </div>
-                    <div class="col-md-1"></div>
+                    
                 </div>
             </div>
             <br class="break">

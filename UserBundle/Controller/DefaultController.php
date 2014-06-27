@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use GMI\UserBundle\Entity\User;
 use GMI\AdminBundle\Entity\Donasi;
 use GMI\AdminBundle\Entity\Berita;
+use GMI\AdminBundle\Entity\Jadwal;
 
 class DefaultController extends Controller
 {
@@ -16,7 +17,19 @@ class DefaultController extends Controller
         $query = $em->createQuery('SELECT p FROM GMIAdminBundle:Berita p ORDER BY p.id DESC')
                 ->setMaxResults(6);
         $berita = $query->getResult();
-        return $this->render('GMIUserBundle:Default:Template.html.twig', array('berita' => $berita));
+        return $this->render('GMIUserBundle:Default:index.html.twig', array('berita' => $berita));
+    }
+
+    public function newspageAction($id)
+    {
+        $berita = $this->getDoctrine()->getRepository('GMIAdminBundle:Berita')->find($id);
+        return $this->render('GMIUserBundle:Default:newspage.html.twig', array('berita' => $berita));
+    }
+
+    public function jadwalpageAction()
+    {
+        $jadwal = $this->getDoctrine()->getRepository('GMIAdminBundle:Jadwal')->findAll();
+        return $this->render('GMIUserBundle:Default:jadwalpage.html.twig', array('jadwal' => $jadwal));
     }
 
     public function userhomeAction()

@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>News</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="{{asset('bundles/gmiuser/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('bundles/gmiuser/css/bootstrap.css')}}">
+        <link rel="stylesheet" href="{{asset('bundles/gmiuser/css/bootstrap-theme.min.css')}}">
+        <link rel="stylesheet" href="{{asset('bundles/gmiuser/css/bootstrap-responsive.css')}}">
+        <style type="text/css">
+			.hd{
+                background:#22A7F0;}
+            .head{
+            	height:100px;
+            }
+        </style>
+    </head>
+    <body>
+    	<div class="header">
+            
+            <div class="col-md-12 col-md-offset-0">
+                <center><img src="{{asset('bundles/gmiuser/slider/img1.png')}}" class="img-responsive head"></center><br class="break" />
+            </div>
+            
+        </div>
+    	<br class="break">
+		<div class="row col-md-8 col-md-offset-2 hd">
+        <div class="kolom-berita">
+            <div class="judul-berita"><center><b><u><h3>{{ berita.judul }}</h3></u></b></center></div>
+            <br class="break"><br class="break">
+            <div class="tanggal-berita"><font color="red">{{ berita.tanggal|date('d-M-Y') }}</font></div>
+            <br class="break">
+            <div class="deskripsi-berita">
+            {{ berita.isi|raw }}
+            </div>
+            <div class="sumber-berita pull-right">Sumber : <b>{{berita.sumber}}</b></div>
+        </div>
+    	</div>
+	</body>
+</html>

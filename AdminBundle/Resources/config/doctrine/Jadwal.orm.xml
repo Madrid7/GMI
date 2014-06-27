@@ -10,6 +10,6 @@
     <field name="waktuEvent" type="time" column="waktu_event" nullable="false"/>
     <field name="alamat" type="string" column="alamat" length="100" nullable="false"/>
     <field name="panitia" type="string" column="panitia" length="50" nullable="false"/>
-    <field name="cp" type="integer" column="cp" nullable="false"/>
+    <field name="cp" type="string" column="cp" length="20" nullable="false"/>
   </entity>
 </doctrine-mapping>
